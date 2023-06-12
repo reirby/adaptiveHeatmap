@@ -16,14 +16,12 @@ The script takes binary raster data as input and produces a heatmap
 using the IDW interpolation technique. Pixels of interest should have
 integer values of 1, all other pixels should be zeros or "NoData".
 
-![](img/image004.png){width="3.9895833333333335in"
-height="2.4278729221347333in"}
+![](img/image004.png | width=500)
 
 First, the input raster is converted to a vector using the *raster to
 polygon* tool.
 
-![](img/image005.png){width="3.9895833333333335in"
-height="2.4278729221347333in"}
+![](img/image005.png | width=500)
 
 Example of a big polygon highlighted in red.
 
@@ -48,7 +46,7 @@ The next step is generating centroids of the remaining polygons with the
 which the network is adjusted to follow the distribution of the studied
 phenomena.
 
-![](img/image007.png){width="4.139587707786527in" height="3.5in"}
+![](img/image007.png) | width=500)
 
 Corn point overlaid on polygons cut with a fishnet.
 
@@ -57,13 +55,12 @@ how the adjusted network is produced. The screenshot below shows corn
 (light blue), corn points or "centers of gravity" (dark blue), and
 Thiessen polygons.
 
-![](img/image009.png){width="4.249561461067366in" height="3.125in"}
+![](img/image009.png | width=500)
 
 Since a grid was used to cut initial corn polygons, Voronoi polygons are
 about the same size.
 
-![](img/image011.png){width="5.20665791776028in"
-height="1.9247364391951005in"}
+![](img/image011.png | width=500)
 
 Distribution of Voronoi polygons area
 
@@ -81,8 +78,7 @@ Thiessen polygon need to be calculated. The number of pixels in each
 Thiessen polygon is obtained using the *Zonal statistics* tool. Binary
 corn raster and Thiessen polygons are inputs to this tool.
 
-![](img/image013.png){width="3.0833333333333335in"
-height="2.8030314960629923in"}
+![](img/image013.png | width=500)
 
 Number of corn pixels in each Thiessen polygon.
 
@@ -91,16 +87,14 @@ A Raster with the area of each Thiessen polygon is generated using the
 Generated rasters must have the same pixel size, which is done
 automatically, by applying the cell size of the initial binary raster.
 
-![](img/image015.png){width="3.293494094488189in"
-height="3.0170734908136483in"}
+![](img/image015.png | width=500)
 
 Area of each polygon
 
 Map algebra (*Raster calculator*) is then used to calculate pixels per
 square unit raster. Pixel count raster is simply divided by area raster.
 
-![](img/image017.png){width="3.242130358705162in"
-height="2.9479166666666665in"}
+![](img/image017.png | width=500)
 
 Pixels per square meter in each Thiessen polygon
 
@@ -114,8 +108,7 @@ The last step is the interpolation of obtained points to a surface.
 There are multiple options available in ArcGIS under *Spatial analyst
 tools/Interpolation*. At this point, the IDW interpolation is used.
 
-![](img/image019.png){width="3.391811023622047in"
-height="3.1041666666666665in"}
+![](img/image019.png | width=500)
 
 Heatmap. White and red -- more corn, yellow and green less corn.
 
@@ -124,5 +117,5 @@ the environment, getting parameters from the tool interface, applying
 tools, and clearing memory. The overall logic structure of the code is
 sown by the flowchart:
 
-![](img/image021.png){width="6.728472222222222in"
-height="3.310416666666667in"}
+![](img/image021.png | width=500)
+
